@@ -1,0 +1,9 @@
+.notice{
+    color: #c9302c;
+}
+.table>tbody>tr>td{
+    vertical-align: middle;
+}
+.login a{
+    color: #fff;
+}

@@ -1,0 +1,25 @@
+<div class="container" style="padding-top:70px;" ng-controller="articleCtrl">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{bookInfo.src}}" alt="">
+        </div>
+        <div class="col-md-8">
+            <p class="lead">{{bookInfo.bookName}}</p>
+            <address>
+                <strong>作&emsp; 者：{{bookInfo.athour}}</strong><br>
+                时&emsp; 间：{{bookInfo.time}} <br>
+                出版社：{{bookInfo.publisher}} <br>
+            </address>
+            <p>{{bookInfo.introduce}}</p>
+            <h4>目录列表</h4>
+            <ul>
+                <li ng-repeat="(key,value) in bookInfo.article">
+                    {{key}}
+                    <ul>
+                        <li ng-repeat="part in value">{{part}}</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

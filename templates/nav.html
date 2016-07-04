@@ -1,0 +1,23 @@
+<nav class="navbar navbar-fixed-top navbar-inverse" ng-controller="navCtrl">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a ui-sref="index" class="navbar-brand">My BookStroe</a>
+        </div>
+        <div class="collapse navbar-collapse" id="mynav">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a ui-sref="index">首页</a>
+                </li>
+                <li>
+                    <a ui-sref="list.table({'name' : 'all'})">列表</a>
+                </li>
+            </ul>
+            <p ng-show="login" class="navbar-text navbar-right login">{{admin}}已登录,<a href="#/login" ng-click="logout()">退出</a></p>
+        </div>
+    </div>
+</nav>

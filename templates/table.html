@@ -1,0 +1,39 @@
+<div ng-controller="tableCtrl">
+    <p class="lead">图书分类 > {{currentSpecies}}</p>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>图书序号</th>
+                <th>图书名称</th>
+                <th>图书作者</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="book in bookItems track by $index" ng-if="$index < 5">
+                <td>{{book.bookcode}}</td>
+                <td>{{book.name}}</td>
+                <td>{{book.author}}</td>
+                <td>
+                    <a href="#/article/{{book.bookcode}}" class="btn btn-success">查看</a>
+                    <a href="#/delete/{{book.bookcode}}" class="btn btn-danger">删除</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <nav class="pull-right">
+        <ul class="pagination">
+            <li class="disabled">
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li ng-repeat="page in pages track by $index" ng-class="{'active':$index==0}"><a href="#">{{$index+1}}</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
