@@ -69,7 +69,7 @@ require(['factory'],function(myApp){
     // 首页数据渲染控制器
     myApp.controller('indexCtrl',['$scope','$http','checkAdmin','indexData',function($scope,$http,checkAdmin,indexData){
         // 只有登录才能进入
-        //checkAdmin.checkAdmin();
+        checkAdmin.checkAdmin();
 
         // 获取首页 热门书籍书籍
         indexData.success(function(res){
@@ -92,7 +92,7 @@ require(['factory'],function(myApp){
 
     myApp.controller('listCtrl',['$scope','$stateParams','checkAdmin','getBookList',function($scope,$stateParams,checkAdmin,getBookList){
         // 只有登录才能进入
-        //checkAdmin.checkAdmin();
+        checkAdmin.checkAdmin();
 
         $scope.listJson =  {
             'all' : {name : '全部', code : 0},
@@ -108,7 +108,9 @@ require(['factory'],function(myApp){
         }
     }]);
 
-    myApp.controller('tableCtrl',['$scope','$stateParams','getBookList',function($scope,$stateParams,getBookList){
+    myApp.controller('tableCtrl',['$scope','$stateParams','getBookList','checkAdmin',function($scope,$stateParams,getBookList,checkAdmin){
+        // 只有登录才能进入
+        checkAdmin.checkAdmin();
 
         getBookList.getList($stateParams.name).success(function(res){
             $scope.bookItems = res.data;
@@ -122,8 +124,9 @@ require(['factory'],function(myApp){
 
     // angular js 实现分页 参考 http://www.html-js.com/article/The-AngulaJS-instance
 
-
-    myApp.controller('articleCtrl',['$scope','$stateParams','getBookInfo',function($scope,$stateParams,getBookInfo){
+    myApp.controller('articleCtrl',['$scope','$stateParams','getBookInfo','checkAdmin',function($scope,$stateParams,getBookInfo,checkAdmin){
+        // 只有登录才能进入
+        checkAdmin.checkAdmin();
 
         getBookInfo.getInfo($stateParams.bookId).success(function(res){
             if(res.status){
